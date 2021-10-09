@@ -1,0 +1,5 @@
+export { default as changeSquareType } from "./changeSquareType"
+export { default as checkMove } from "./checkMove"
+export { default as createBoard } from "./createBoard"
+export { default as pickMineCoords } from "./pickMineCoords"
+export { default as toggleFlag } from "./toggleFlag"

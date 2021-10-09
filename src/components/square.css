@@ -1,0 +1,19 @@
+.square {
+    width: 5em;
+    height: same-as-width;
+    background-color: darkgrey;
+    border: 1px solid black;
+}
+
+.clicked {
+    background-color: lightgrey;
+}
+
+.mine {
+    background-color: red;
+}
+
+.flag{
+    background-color: yellow;
+}
+

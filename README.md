@@ -1,3 +1,12 @@
+# React Minesweeper
+
+The classic Minesweeper game we all know and love using the React library. 
+
+<em>I used Create React App as the basis of this project. The React devs are kind enough to have a "how to run this app" provided out of the box, so I'm including it below.</em>
+
+***
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
