@@ -1,5 +1,5 @@
 import "./square.css";
-import {useState} from 'react';
+import {useState, useEffect } from 'react';
 
 function Square({ type, coords, handleLeftClick, handleRightClick }){
     const [clicked, setClicked] = useState("")
@@ -8,14 +8,29 @@ function Square({ type, coords, handleLeftClick, handleRightClick }){
     if(mine == "" && type[0] == "1" && type[1] == "0"){
         setMine("mine")
     }
-    else if(clicked == "" && type[0] == "1"){
+    if(clicked == "" && type[0] == "1"){
         console.log("CLICKKKDKED")
         setClicked("clicked")
     }
-    else if(flag == "" && type[2] == "1"){
-        console.log("FLAGGGGG")
-        setFlag((prev) => "flag")
-    }
+    useEffect(() => {
+        switch (type[2]){
+            case "0":
+                console.log("0")
+                setFlag((prev) => "");
+                break;
+            case "1":
+                console.log("flag")
+                setFlag((prev) => "flag");
+                break;
+            case "2":
+                console.log("smile")
+                setFlag((prev) => "smile")
+                break;
+            default:
+                console.log("the switch ain't working")
+        }
+    })
+
 
     return (
     <button 
