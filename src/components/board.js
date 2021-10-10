@@ -29,7 +29,10 @@ function Board({ boardSize, mineNum }) {
             {Object.entries(boardInfo).map(
                     s => {
                         return (
-                            <div className="boardRows">
+                            <div 
+                                className="boardRows"
+                                key={uuidv4()}
+                            >
                                 {Object.entries(s[1]).map(y=>{
                                     return (
                                         <Square 

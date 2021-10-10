@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react'
+import { v4 as uuidv4 } from 'uuid';
+
 
 import {Board} from "./components"
 
@@ -9,7 +10,11 @@ function App() {
   const [mineNum] = useState(10)
   return (
     <div className="App">
-      <Board boardSize={boardSize} mineNum={mineNum}/>
+      <Board
+        boardSize={boardSize}
+        mineNum={mineNum}
+        key={uuidv4()}
+      />
     </div>
   );
 }

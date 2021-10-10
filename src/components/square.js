@@ -25,7 +25,7 @@ function Square({ type, coords, handleLeftClick, handleRightClick }){
             default:
                 setFlag((prev) => "");
         }
-    })
+    }, [type])
 
 
     return (
