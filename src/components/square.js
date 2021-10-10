@@ -5,10 +5,10 @@ function Square({ type, coords, handleLeftClick, handleRightClick }){
     const [clicked, setClicked] = useState("")
     const [mine, setMine] = useState("")
     const [flag, setFlag] = useState("")
-    if(mine == "" && type[0] == "1" && type[1] == "0"){
+    if(mine === "" && type[0] === "1" && type[1] === "0"){
         setMine("mine")
     }
-    if(clicked == "" && type[0] == "1"){
+    if(clicked === "" && type[0] === "1"){
         setClicked("clicked")
     }
     useEffect(() => {

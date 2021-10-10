@@ -6,23 +6,17 @@ import { useState } from 'react';
 
 function Board({ boardSize, mineNum }) {
     const [boardInfo, setBoardInfo] = useState(createBoard(boardSize, mineNum))
+    
     const handleLeftClick = function (e, coords, squareType){
+        // When user left clicks a button, checks for mine or empty space.
         e.preventDefault()
         let newSquareType = checkMove(squareType)
-        if(newSquareType[1]=="0" && newSquareType[0]=="1"){
-            coords = [coords]
-            for(let row of Object.entries(boardInfo)){
-                for (let square of Object.values(row)){
-                    if(square[1]=="0"){
-                        coords.push()
-                    }
-                }
-            }
-        }
         setBoardInfo((prev) => changeSquareType(prev, coords, newSquareType))
     }
 
     const handleRightClick = function (e, coords, squareType){
+        // When user right clicks a button, adds flag. 
+        // 0 is no flag, 1 is mine flag, 2 is smiley flag
         e.preventDefault()
         let newSquareType = switchFlag(squareType)
         setBoardInfo((prev) => changeSquareType(prev, coords, newSquareType))
