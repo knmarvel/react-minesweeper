@@ -1,5 +1,5 @@
 import "./board.css";
-import { Square } from "."
+import { EndGameBanner, Square } from "."
 import {
     changeSquareType,
     checkMove,
@@ -13,7 +13,8 @@ import { useState } from 'react';
 
 function Board({ boardSize, mineNum }) {
     const [boardInfo, setBoardInfo] = useState(createBoard(boardSize, mineNum))
-
+    // gameStatus key: 0 = playing, 1 = end game win, 2 = end game lose
+    const [gameStatus, setGameStatus] = useState(0)
     const handleLeftClick = function (e, coords, squareType) {
         // When user left clicks a button, checks for mine or empty space.
         e.preventDefault()
@@ -22,6 +23,7 @@ function Board({ boardSize, mineNum }) {
         if (newSquareType === "100") {
             console.log("inside newSquareType is 100 if")
             setBoardInfo((prev) => loseGame(prev))
+            setGameStatus((prev) => 2)
         }
         // otherwise, add our info to the board:
         else{
@@ -39,6 +41,7 @@ function Board({ boardSize, mineNum }) {
 
     return (
         <div className="board">Hello there! I'm the board!
+            {gameStatus ? <EndGameBanner props={gameStatus}/> : ""}
             <div className="board-rows">
 
                 {Object.entries(boardInfo).map(

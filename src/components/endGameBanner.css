@@ -1,0 +1,14 @@
+.endGame{
+    position: fixed;
+    z-index: 999;
+    height: 40%;
+    width: 80%;
+}
+
+.win{
+    background-color: green;
+}
+
+.lose {
+    background-color: red;
+}
