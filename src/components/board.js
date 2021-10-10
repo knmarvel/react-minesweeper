@@ -1,6 +1,6 @@
 import "./board.css";
 import { Square } from "."
-import { changeSquareType, checkMove, createBoard, toggleFlag } from "../helpers"
+import { changeSquareType, checkMove, createBoard, switchFlag } from "../helpers"
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 
@@ -8,9 +8,7 @@ function Board({ boardSize, mineNum }) {
     const [boardInfo, setBoardInfo] = useState(createBoard(boardSize, mineNum))
     const handleLeftClick = function (e, coords, squareType){
         e.preventDefault()
-        console.log(squareType)
         let newSquareType = checkMove(squareType)
-        console.log(newSquareType)
         if(newSquareType[1]=="0" && newSquareType[0]=="1"){
             coords = [coords]
             for(let row of Object.entries(boardInfo)){
@@ -26,7 +24,7 @@ function Board({ boardSize, mineNum }) {
 
     const handleRightClick = function (e, coords, squareType){
         e.preventDefault()
-        let newSquareType = toggleFlag(squareType)
+        let newSquareType = switchFlag(squareType)
         setBoardInfo((prev) => changeSquareType(prev, coords, newSquareType))
     }
 
@@ -39,7 +37,6 @@ function Board({ boardSize, mineNum }) {
                         return (
                             <div className="boardRows">
                                 {Object.entries(s[1]).map(y=>{
-                                    // console.log("coords",[s[0], y[0]])
                                     return (
                                         <Square 
                                             type={y[1]}

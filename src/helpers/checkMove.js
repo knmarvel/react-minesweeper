@@ -3,7 +3,6 @@ const checkMove = function (squareType) {
     /// First digit stands for unclicked or clicked,
     /// second digit stands for safe or mine
     /// third digit stands for unflagged or flagged
-    console.log(squareType)
     if (squareType[1] === "0") {
         // clicked a mine, you lose
         alert("someone set us up the bomb");
@@ -18,7 +17,6 @@ const checkMove = function (squareType) {
         // mark as clicked
         return "1" + squareType[1] + squareType[2]
     }
-    return squareType
 }
 
 export default checkMove
