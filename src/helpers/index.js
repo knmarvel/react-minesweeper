@@ -1,5 +1,6 @@
 export { default as changeSquareType } from "./changeSquareType"
 export { default as checkMove } from "./checkMove"
 export { default as createBoard } from "./createBoard"
+export { default as loseGame } from "./loseGame"
 export { default as pickMineCoords } from "./pickMineCoords"
 export { default as switchFlag } from "./switchFlag"
